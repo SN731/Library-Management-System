@@ -1,0 +1,101 @@
+CREATE TABLE Books (
+    book_no INT AUTO_INCREMENT,
+    isbn VARCHAR(20),
+    title VARCHAR(255),
+    auth_no VARCHAR(50),
+    category VARCHAR(50),
+    edition VARCHAR(20),
+    price DECIMAL(10, 2),
+    due_date DATE,
+    PRIMARY KEY (book_no)
+);
+
+CREATE TABLE Publisher (
+    publisher_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    year_of_publication YEAR
+);
+
+CREATE TABLE Staff (
+    staff_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100)
+);
+
+CREATE TABLE Reports (
+    reg_no INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    book_no INT,
+    issue_or_return ENUM('Issue', 'Return'),
+    FOREIGN KEY (user_id) REFERENCES Readers(user_id),
+    FOREIGN KEY (book_no) REFERENCES Books(book_no)
+);
+
+CREATE TABLE Authentication_System (
+    login_id INT PRIMARY KEY AUTO_INCREMENT,
+    password VARCHAR(255),
+    staff_id INT,
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
+
+ALTER TABLE Books
+    ADD COLUMN publisher_id INT,
+    ADD FOREIGN KEY (publisher_id) REFERENCES Publisher(publisher_id);
+
+CREATE TABLE Feedback (
+    feedback_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    book_no INT,
+    feedback_text TEXT,
+    rating INT CHECK (rating BETWEEN 1 AND 5),
+    feedback_date DATE,
+    FOREIGN KEY (user_id) REFERENCES Readers(user_id),
+    FOREIGN KEY (book_no) REFERENCES Books(book_no)
+);
+
+CREATE TABLE Reader_Book (
+
+user_id INT,
+
+book_no INT,
+
+reserve_date DATE,
+
+return_date DATE,
+
+PRIMARY KEY (user_id, book_no),
+
+FOREIGN KEY (user_id) REFERENCES Readers(user_id),
+
+FOREIGN KEY (book_no) REFERENCES Books(book_no)
+
+
+create database LMS;
+
+USE LMS;
+
+Database changed
+
+mysql> CREATE TABLE Readers (
+user_id INT PRIMARY KEY AUTO_INCREMENT, ,
+first_name VARCHAR(50) last_name VARCHAR(50),
+email VARCHAR(100) UNIQUE,
+phone_no VARCHAR(15),
+address TEXT
+);
+
+mysql> CREATE TABLE Books (
+
+book no INT PRIMARY KEY AUTO_INCREMENT,
+
+isbn VARCHAR(20) UNIQUE,
+
+title VARCHAR(255), auth_no VARCHAR(50)
+
+category VARCHAR(50),
+
+edition VARCHAR(20),
+
+price DECIMAL(10, 2),
+
+due date DATE
+);
