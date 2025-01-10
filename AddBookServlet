@@ -1,0 +1,33 @@
+package servlets;
+
+import dao.BookDAO;
+import models.Book;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+
+@WebServlet("/addBook")
+public class AddBookServlet extends HttpServlet {
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String title = request.getParameter("title");
+        String author = request.getParameter("author");
+        String isbn = request.getParameter("isbn");
+        boolean available = Boolean.parseBoolean(request.getParameter("available"));
+
+        Book book = new Book(title, author, isbn, available);
+
+        try {
+            BookDAO bookDAO = new BookDAO();
+            bookDAO.addBook(book);
+            response.sendRedirect("listBooks");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to add book.");
+        }
+    }
+}
