@@ -1,0 +1,14 @@
+# Library Management System
+
+## Overview
+This project is a Library Management System developed using Java Servlets, JSP, and MySQL. It allows users to register, manage their profiles, and interact with library resources.
+
+## Features
+- User registration and profile management
+- Dynamic JSP pages with JSTL and EL
+- Admin dashboard for library management
+
+## Installation
+1. Clone the repository to your local machine:
+   ```bash
+   git clone <https://github.com/SN731/Library-Management-System>
