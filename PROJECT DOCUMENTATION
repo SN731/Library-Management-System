@@ -1,0 +1,147 @@
+# Library Management System
+
+## Project Documentation
+
+### **1. Introduction**
+The Library Management System is a web-based application designed to manage library operations effectively. Built using Java Servlets, JSP, and MySQL, this system supports user registration, profile management, and administrative tasks.
+
+---
+
+### **2. Features**
+#### User Features:
+- Registration and login.
+- Profile management and updates.
+- View personal information dynamically using JSP.
+
+#### Admin Features:
+- Manage library resources.
+- Access an admin dashboard to monitor user activities.
+
+#### Technical Features:
+- JSP with JSTL and EL for dynamic pages.
+- MySQL for database management.
+- Servlets for handling HTTP requests (GET and POST).
+
+---
+
+### **3. System Requirements**
+#### **Software Requirements:**
+- Java Development Kit (JDK) 8 or above.
+- Apache Tomcat 9.0 or above.
+- MySQL Server.
+- IDE: IntelliJ IDEA/Eclipse/NetBeans.
+- Build Tool: Maven.
+
+#### **Hardware Requirements:**
+- Minimum 4 GB RAM.
+- 1 GHz processor or above.
+- 500 MB free disk space.
+
+---
+
+### **4. Installation Guide**
+1. **Clone the Repository:**
+   ```bash
+   git clone <repository-url>
+   ```
+
+2. **Database Setup:**
+   - Create a database in MySQL using the provided `database-schema.sql` file.
+   - Update database connection details in the DAO classes (e.g., `DB_URL`, `DB_USER`, `DB_PASSWORD`).
+
+3. **Build and Deploy:**
+   - Use Maven to build the project:
+     ```bash
+     mvn clean install
+     ```
+   - Deploy the generated WAR file to the Tomcat server.
+
+4. **Access the Application:**
+   - Open the browser and access `http://localhost:8080/LibraryManagement`.
+
+---
+
+### **5. Folder Structure**
+```
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── servlets/
+│   │   │   │   ├── UserServlet.java
+│   │   │   │   ├── AdminServlet.java
+│   │   │   └── dao/
+│   │   │       └── UserDAO.java
+│   │   ├── webapp/
+│   │       ├── WEB-INF/
+│   │       │   └── web.xml
+│   │       ├── registration.jsp
+│   │       ├── dashboard.jsp
+│   │       └── userDetails.jsp
+│   └── test/
+│       └── java/
+│           ├── UserServiceTest.java
+│           └── UserDAOTest.java
+├── README.md
+├── pom.xml
+└── docs/
+    ├── database-schema.sql
+    └── project-report.pdf
+```
+
+---
+
+### **6. System Modules**
+#### **User Module:**
+- Registration: Captures user details and saves them to the database.
+- Profile Management: Allows users to view and update their profiles dynamically.
+
+#### **Admin Module:**
+- Admin Dashboard: Provides an overview of users and library resources.
+- Manage Resources: Allows CRUD operations on books and other library assets.
+
+#### **Database Module:**
+- Tables:
+  - `users`: Stores user information.
+  - `books`: Stores details about library books.
+  - `transactions`: Tracks issued and returned books.
+
+---
+
+### **7. Testing**
+#### **Unit Tests:**
+- `UserServiceTest.java`: Validates user registration and login functionality.
+- `UserDAOTest.java`: Tests CRUD operations on the database.
+
+#### **Manual Testing:**
+- Verify user registration, login, and profile update.
+- Test admin dashboard functionality.
+- Check database integrity and data flow.
+
+---
+
+### **8. Deployment**
+- Deploy the WAR file to an Apache Tomcat server.
+- Access the application via the configured URL.
+
+---
+
+### **9. Challenges and Solutions**
+#### Challenges:
+- Managing concurrency in servlets.
+- Handling database connection pooling efficiently.
+
+#### Solutions:
+- Implemented synchronization for critical sections.
+- Used a connection pool library (e.g., HikariCP).
+
+---
+
+### **10. Future Enhancements**
+- Implement role-based access control (RBAC) for users and admins.
+- Add a book recommendation system using machine learning.
+- Enhance UI with a responsive framework like Bootstrap.
+
+---
+
+### **11. Conclusion**
+The Library Management System successfully meets the project requirements, offering robust functionality for users and admins. It is designed to be scalable and can be extended with additional features in the future.
