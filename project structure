@@ -1,0 +1,29 @@
+src/
+├── dao/
+│   └── BookDAO.java
+├── models/
+│   └── Book.java
+├── services/
+│   └── BookService.java
+├── servlets/
+│   ├── BookServlet.java
+│   ├── RegisterServlet.java
+│   ├── LoginServlet.java
+│   ├── ProfileServlet.java
+├── utils/
+│   └── DBConnection.java
+├── webapp/
+│   ├── WEB-INF/
+│   │   └── web.xml
+│   ├── jsp/
+│   │   ├── registerForm.jsp
+│   │   ├── loginForm.jsp
+│   │   ├── profile.jsp
+│   │   ├── listBooks.jsp
+│   │   └── updateBookForm.jsp
+├── test/
+│   ├── dao/
+│   │   └── BookDAOTest.java
+│   ├── services/
+│   │   └── BookServiceTest.java
+└── pom.xml
