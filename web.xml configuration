@@ -1,0 +1,46 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
+    <servlet>
+        <servlet-name>AddBookServlet</servlet-name>
+        <servlet-class>servlets.AddBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBookServlet</servlet-name>
+        <url-pattern>/addBook</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListBooksServlet</servlet-name>
+        <servlet-class>servlets.ListBooksServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListBooksServlet</servlet-name>
+        <url-pattern>/listBooks</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateBookServlet</servlet-name>
+        <servlet-class>servlets.UpdateBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateBookServlet</servlet-name>
+        <url-pattern>/updateBook</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>servlets.DeleteBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <url-pattern>/deleteBook</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FindBookServlet</servlet-name>
+        <servlet-class>servlets.FindBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindBookServlet</servlet-name>
+        <url-pattern>/findBook</url-pattern>
+    </servlet-mapping>
+</web-app>
